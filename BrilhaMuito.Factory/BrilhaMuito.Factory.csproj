@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{076287DA-640D-42E6-BDAC-AE82C49A7D1F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BrilhaMuito.Factory</RootNamespace>
+    <AssemblyName>BrilhaMuito.Factory</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cryptography\CryptoBase.cs" />
+    <Compile Include="Cryptography\Sha1.cs" />
+    <Compile Include="Extension\DateTimeExtension.cs" />
+    <Compile Include="Extension\ExpandoObjectExtension.cs" />
+    <Compile Include="Extension\GuidExtension.cs" />
+    <Compile Include="Extension\StringExtension.cs" />
+    <Compile Include="Helper\Argument.cs" />
+    <Compile Include="Helper\ConfigurationManagerHelper.cs" />
+    <Compile Include="Helper\CryptoHelper.cs" />
+    <Compile Include="Helper\Interface\IConfigurationManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Account\ICandidateRepository.cs" />
+    <Compile Include="Repository\Account\IMemberRepository.cs" />
+    <Compile Include="Repository\Account\ISessionRepository.cs" />
+    <Compile Include="Repository\Account\IUserRepository.cs" />
+    <Compile Include="Repository\IRepositoryBase.cs" />
+    <Compile Include="Rest\Resource\MemberResource.cs" />
+    <Compile Include="Rest\Resource\SessionResource.cs" />
+    <Compile Include="Rest\Resource\UserResource.cs" />
+    <Compile Include="Service\Account\ICandidateService.cs" />
+    <Compile Include="Service\Account\IMemberService.cs" />
+    <Compile Include="Service\Account\ISessionService.cs" />
+    <Compile Include="Service\Account\IUserService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BrilhaMuito.Domain\BrilhaMuito.Domain.csproj">
+      <Project>{b0c4fc5d-e3d9-4e9f-8a2a-9f559a3abc7d}</Project>
+      <Name>BrilhaMuito.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
